@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LLM Log Intelligence</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        .box { border: 1px solid #ccc; padding: 20px; margin-bottom: 20px; }
+        input { width: 70%; padding: 8px; }
+        button { padding: 8px 12px; }
+    </style>
+</head>
+<body>
+
+<h1>Large-Scale Log Intelligence System</h1>
+
+<div class="box">
+    <h2>System Overview</h2>
+    <p>Total Logs: {{ data.total_logs }}</p>
+    <p>4xx Error Rate: {{ data.error_4xx }}</p>
+    <p>5xx Error Rate: {{ data.error_5xx }}</p>
+</div>
+
+<div class="box">
+    <h2>🔍 Intelligent Search (LLM-based)</h2>
+    <form method="POST">
+        <input type="text" name="query" placeholder="Enter your query..." required>
+        <button type="submit">Search</button>
+    </form>
+
+    {% if data.search_query %}
+        <p><b>Query:</b> {{ data.search_query }}</p>
+        <p><b>LLM Result:</b> {{ data.search_result }}</p>
+    {% endif %}
+</div>
+
+</body>
+</html>
